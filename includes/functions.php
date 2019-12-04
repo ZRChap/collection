@@ -29,13 +29,25 @@ function addTracks($trackNum) {
   echo "ADD TRACK NAMES" . '<br>';
   for ($x = 1; $x <= $trackNum; $x++) {
     echo $x . '
+    <form method="POST">
       <li>
         <input id="addTracks' . $x  . ' type="text" name="addTracks" value="">
       </li>';
   }
 
-  echo '<br>' . '<input type="submit" name="addTracks" value="Add Tracks">';
+  echo '<br>' . '<input type="submit" name="addTracksSubmit" value="Add Tracks">
+  </form>';
+
 }
+
+function submitTracks($trackNum) {
+  if(isset($POST_['addTracksSubmit'])){
+    $track = $POST_['addTrackField'];
+    echo $track;
+  }
+}
+
+
 
 function pageMessage() {
     if(isset($_GET['regSuccess'])) {
