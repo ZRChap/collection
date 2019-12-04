@@ -1,0 +1,46 @@
+#logoutBtn {
+  margin-bottom: 20px;
+}
+.regError {
+    visibility: hidden;
+    color: red;
+}
+
+.addError {
+  visibility: hidden;
+  color: red;
+}
+
+#passError {
+    visibility: hidden;
+    color: red;
+}
+
+#emailError {
+  visibility: hidden;
+  color: red;
+}
+
+#emailInvalid1 {
+  visibility: hidden;
+  color: red;
+}
+
+#emailInvalid2 {
+  visibility: hidden;
+  color: red;
+}
+
+
+table {
+  border: 1px solid black;
+  overflow:visible;
+  width: 100%;
+  margin: auto;
+
+
+}
+
+table td {
+  text-align: center;
+}
