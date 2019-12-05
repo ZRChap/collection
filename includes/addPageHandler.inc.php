@@ -63,7 +63,7 @@ if(isset($_GET['sort'])) {
         $db->insertRow("INSERT INTO album (artist_id, albumName, year, tracks, created, updated) VALUES (?, ?, ?, ?, ?, ?)", ["$artistId", "$album", "$year", "$trackNum", "$currTime", "$currTime"]);
 
         addTracks($trackNum);
-        // submitTracks($trackNum);
+        submitTracks($trackNum);
         
         // header('Location: http://localhost/collection/addpage.php?addSuccess');    
       }  
