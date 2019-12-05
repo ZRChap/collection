@@ -47,7 +47,7 @@ if(isset($_GET['sort'])) {
         // header('Location: http://localhost/collection/addpage.php?addSuccess');
       
     
-      //if artist and album do not exits then add both to colleciton//
+      //if artist and album do not exits then add both to collection//
       } else {
         $artist = $_POST['addArtist'];
         $album = $_POST['addAlbum'];
@@ -63,7 +63,7 @@ if(isset($_GET['sort'])) {
         $db->insertRow("INSERT INTO album (artist_id, albumName, year, tracks, created, updated) VALUES (?, ?, ?, ?, ?, ?)", ["$artistId", "$album", "$year", "$trackNum", "$currTime", "$currTime"]);
 
         addTracks($trackNum);
-        submitTracks($trackNum);
+        // submitTracks($trackNum);
         
         // header('Location: http://localhost/collection/addpage.php?addSuccess');    
       }  
@@ -78,5 +78,5 @@ if(isset($_GET['sort'])) {
   header('Location: http://localhost/collection');
   }
 
-
+  
  ?>

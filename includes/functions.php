@@ -26,28 +26,23 @@ if(!empty($data)) {
 
 
 function addTracks($trackNum) {
-  echo "ADD TRACK NAMES" . '<br>';
+  echo "ADD TRACK NAMES" . '<br>' . '<form method="POST">';
   for ($x = 1; $x <= $trackNum; $x++) {
-    echo $x . '
-    <form method="POST">
-      <li>
-        <input id="addTracks' . $x  . ' type="text" name="addTracks" value="">
-      </li>';
+    echo  $x . '
+        <input id="addTrackField"' . $x  . ' type="text" name="addTrackField" value="">
+        <br>
+      ';
   }
-
-  echo '<br>' . '<input type="submit" name="addTracksSubmit" value="Add Tracks">
+  echo '<input type="submit" name="addTracksSubmit" value="Add Tracks">
   </form>';
-
 }
 
-function submitTracks($trackNum) {
-  if(isset($POST_['addTracksSubmit'])){
-    $track = $POST_['addTrackField'];
-    echo $track;
-  }
-}
-
-
+// function submitTracks($trackNum) {
+//   if(isset($POST_['addTracksSubmit'])){
+//     $track = $POST_['addTrackField'];
+//     echo "is it working";
+//   }
+// }
 
 function pageMessage() {
     if(isset($_GET['regSuccess'])) {

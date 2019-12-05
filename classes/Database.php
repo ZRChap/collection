@@ -4,7 +4,7 @@ class Database {
   protected $db;
 
   // connect to db
-  public function __construct($username = "root", $password = "nin111", $host = "localhost", $dbname = "collection") {
+  public function __construct($username = "root", $password = "", $host = "localhost", $dbname = "collection") {
     $this->conn = True;
     try {
       $this->db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password);
