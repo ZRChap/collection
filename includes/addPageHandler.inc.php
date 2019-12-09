@@ -10,7 +10,7 @@ if(isset($_SESSION['user'])) {
   if(isset($_GET['order'])) {
     $order = $_GET['order'];
   } else {
-    $order = 'artist';
+    $order = 'artistName';
   }
 
 if(isset($_GET['sort'])) {
@@ -47,11 +47,8 @@ if(isset($_GET['sort'])) {
 
         $db->insertRow("INSERT INTO collection(user_id, artist_id, album_id) VALUES (?, ?, ?)", ["$user_id", "$artistId", "$albumId"]);
 
-        
-
         header('Location: http://localhost/collection/addpage.php?addSuccess');
       
-    
       //if artist and album do not exits then add both to collection//
       } else {
         $artist = $_POST['addArtist'];
@@ -75,15 +72,13 @@ if(isset($_GET['sort'])) {
 
         $db->insertRow("INSERT INTO collection(user_id, artist_id, album_id) VALUES (?, ?, ?)", ["$user_id", "$artistId", "$albumId"]);
 
-       
         header('Location: http://localhost/collection/addpage.php?addSuccess');    
       }  
     }
     
-    $data = $db->getRows('SELECT collection.collection_id, artist.artistName, album.albumName, album.year, album.tracks FROM collection JOIN artist ON artist.artist_id = collection.artist_id JOIN album ON collection.album_id = album.album_id');
+    $data = $db->getRows('SELECT collection.collection_id, artist.artistName, album.albumName, album.year, album.tracks FROM collection JOIN artist ON artist.artist_id = collection.artist_id JOIN album ON collection.album_id = album.album_id ORDER BY' . " $order $sort");
     
     dspTable($data, $sort);
-
 
 } else {
   session_destroy();

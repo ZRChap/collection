@@ -7,8 +7,8 @@ if(!empty($data)) {
       <table border ='1'>
         <tr>
           <th>SELECT</th>
-          <th><a href='?order=artist&&sort=$sort'>ARTIST</a></th>
-          <th><a href='?order=album&&sort=$sort'>ALBUM</a></th>
+          <th><a href='?order=artistName&&sort=$sort'>ARTIST</a></th>
+          <th><a href='?order=albumName&&sort=$sort'>ALBUM</a></th>
           <th><a href='?order=year&&sort=$sort'>YEAR</a></th>
           <th><a href='?order=tracks&&sort=$sort'>TRACKS</a></th>
     ";
