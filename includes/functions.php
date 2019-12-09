@@ -9,40 +9,22 @@ if(!empty($data)) {
           <th>SELECT</th>
           <th><a href='?order=artist&&sort=$sort'>ARTIST</a></th>
           <th><a href='?order=album&&sort=$sort'>ALBUM</a></th>
-          <th><a href='?order=tracks&&sort=$sort'>TRACKS</a></th>
           <th><a href='?order=year&&sort=$sort'>YEAR</a></th>
+          <th><a href='?order=tracks&&sort=$sort'>TRACKS</a></th>
     ";
     foreach ($data as $row) {
       echo '<tr>
         <td><input type="checkbox" name="" value=""></td>
-        <td>' . $row['artist'] . '</td>
-        <td>' . $row['album'] . '</td>
-        <td>' . $row['tracks'] . '</td>
+        <td>' . $row['artistName'] . '</td>
+        <td>' . $row['albumName'] . '</td>
         <td>' . $row['year'] . '</td>
+        <td>' . $row['tracks'] . '</td>
       </tr>';
     }
   } 
 };
 
 
-function addTracks($trackNum) {
-  echo "ADD TRACK NAMES" . '<br>' . '<form method="POST">';
-  for ($x = 1; $x <= $trackNum; $x++) {
-    echo  $x . '
-        <input id="addTrackField' . $x . '"'  . ' type="text" name="addTrackField" value="">
-        <br>
-      ';
-  }
-  echo '<input type="submit" name="addTracksSubmit" value="Add Tracks">
-  </form>';
-}
-
-function submitTracks($trackNum) {
-  if(isset($POST_['addTracksSubmit'])){
-    $track = $POST_['addTrackField1'];
-    echo "is it working";
-  }
-}
 
 function pageMessage() {
     if(isset($_GET['regSuccess'])) {
