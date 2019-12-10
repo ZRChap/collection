@@ -2,21 +2,13 @@
 include_once(dirname(__FILE__)."/includes/header.php");
 include_once(dirname(__FILE__)."/includes/addPageHandler.inc.php");
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="assets/login.css">
-  </head>
-  <body>
     <div id="page-wrapper">
       <div id="header">
         <form class="" action="includes/logout.inc.php" method="post">
           <?php echo '<div><h3>Welcome ' . $_SESSION['user'] . '</h3></div><br>'; ?>
           <input id="logoutBtn" type="submit" name="logout" value="Logout">
-        </div>
         </form>
+      </div>
       <div id="form-wrapper">
         <form onsubmit="return addPageValidate()" class="" name="addPageForm" action="includes/addPageHandler.inc.php" method="post" novalidate>
           <p>
@@ -44,13 +36,10 @@ include_once(dirname(__FILE__)."/includes/addPageHandler.inc.php");
           </p>
         </form>
       </div>
-    </div>
-  <div id="table-wrapper">
-  <div>
-      <input type="submit" name="updateRecord" value="Edit">
-  </div>
-  <div>
-      <input type="submit" name="deleteRecord" value="Delete">
-  </div>
-  </div>
+  <form action ="includes/modify.php" method="post">
+  <?php dspTable($data, $sort); ?>
+    <input type="submit" name="editSubmit" value="Edit">
+    <input type="submit" name="deleteSubmit" value="Delete">
+  </form>
+</div>
 <?php include_once(dirname(__FILE__)."/includes/footer.php"); ?>

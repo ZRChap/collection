@@ -11,19 +11,21 @@ if(!empty($data)) {
           <th><a href='?order=albumName&&sort=$sort'>ALBUM</a></th>
           <th><a href='?order=year&&sort=$sort'>YEAR</a></th>
           <th><a href='?order=tracks&&sort=$sort'>TRACKS</a></th>
-    ";
+    </tr>";
     foreach ($data as $row) {
+      $id = $row['collection_id'];
       echo '<tr>
-        <td><input type="checkbox" name="" value=""></td>
+        <td><input type="checkbox" name="checkboxes[]" value="' . $id . '"></td>
         <td>' . $row['artistName'] . '</td>
         <td>' . $row['albumName'] . '</td>
         <td>' . $row['year'] . '</td>
         <td>' . $row['tracks'] . '</td>
       </tr>';
+      
     }
-  } 
+  }
+  echo '</table>';
 };
-
 
 
 function pageMessage() {

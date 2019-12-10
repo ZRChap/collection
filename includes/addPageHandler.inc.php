@@ -78,8 +78,6 @@ if(isset($_GET['sort'])) {
     
     $data = $db->getRows('SELECT collection.collection_id, artist.artistName, album.albumName, album.year, album.tracks FROM collection JOIN artist ON artist.artist_id = collection.artist_id JOIN album ON collection.album_id = album.album_id ORDER BY' . " $order $sort");
     
-    dspTable($data, $sort);
-
 } else {
   session_destroy();
   header('Location: http://localhost/collection');
