@@ -48,6 +48,9 @@ function pageMessage() {
     if(isset($_GET['albumExists'])) {
       echo '<p style="color:red">Album already in your collection</p>';
   }
+  if(isset($_GET['noSelect'])) {
+    echo "<p style=color:red>Nothing Selected</p>";
+}
 
    
 }
