@@ -50,12 +50,13 @@ function pageMessage() {
   }
   if(isset($_GET['noSelect'])) {
     echo "<p style=color:red>Nothing Selected</p>";
+  }
+  if(isset($_GET['recordDeleted'])) {
+    echo "<p style=color:red>Record Deleted</p>";
+  }
+  
 }
 
-   
-}
-
-
-
+      
 
 ?>
