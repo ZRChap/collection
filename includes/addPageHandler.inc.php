@@ -54,8 +54,16 @@ if(isset($_GET['sort'])) {
           $db->insertRow("INSERT INTO album (artist_id, albumName, year, tracks, created, updated) VALUES (?, ?, ?, ?, ?, ?)", ["$artistId", "$album", "$year", "$trackNum", "$currTime", "$currTime"]);
 
           $db->insertRow("INSERT INTO collection(user_id, artist_id) VALUES (?, ?)", ["$user_id", "$artistId"]);
+
+          $getAlbumId = $db->getrow("SELECT * FROM album WHERE albumName =?", ["$album"]);
+          $albumId = $getAlbumId[0];
+          
+          for($i = 1; $i <= $trackNum; $i++) {
+            $currTrack = 'track ' . "$i" .'';       
+            $db->insertRow("INSERT INTO tracks (album_id, trackName, created, updated) VALUES (?, ?, ?, ?)", ["$albumId", "$currTrack", "$currTime", "$currTime"]);
+           }
         
-          header('Location: http://localhost/collection/addpage.php?addSuccess');    
+         header('Location: http://localhost/collection/addpage.php?addSuccess');    
       }  
     }
     

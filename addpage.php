@@ -37,9 +37,10 @@ include_once(dirname(__FILE__)."/includes/addPageHandler.inc.php");
         </form>
       </div>
   <form action ="includes/modify.php" method="post">
-  <?php dspTable($data, $sort); ?>
     <input type="submit" name="editSubmit" value="Edit">
+    <input type="submit" name="editTracksSubmit" value="Edit Tracks">
     <input type="submit" name="deleteSubmit" value="Delete">
+    <?php dspTable($data, $sort); ?>
   </form>
 </div>
 <?php include_once(dirname(__FILE__)."/includes/footer.php"); ?>
