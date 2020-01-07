@@ -1,20 +1,23 @@
 <?php
 
-include_once(dirname(__FILE__)."/includes/header.php");
+include_once(dirname(__FILE__)."/header.php");
+
+
+echo "what up";
+
+if(isset($_POST['updateTracks'])) {
+    $trackName = $_POST['trackField'];
+    echo $trackName;
+    //$db->updateRow("INSERT INTO tracks (trackName) VALUES (?)", [$trackName]);
+}
+    
 
 
 
 
-
-foreach($tracks as $trackNum => $trackName){
-    $trackNum += 1;
-    if($trackName !== "" && !NULL) {
-    $db->insertRow("INSERT INTO tracks (album_id, trackNum, name, created, updated) VALUES (?, ?, ?, ?, ?)", ["$albumId", "$trackNum", "$trackName", "$currTime", "$currTime"]);
-    }
 
 
 
 
 
     
-    exit;
