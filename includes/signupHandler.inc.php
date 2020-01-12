@@ -1,5 +1,6 @@
 <?php
 include_once(dirname(__FILE__)."/header.php");
+
   if(isset($_POST['register-submit'])) {
     $userName = $_POST['uid'];
     $firstName = $_POST['fName'];

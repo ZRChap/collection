@@ -29,30 +29,34 @@ if(!empty($data)) {
 
 
 function pageMessage() {
-    if(isset($_GET['regSuccess'])) {
-        echo '<p style="color:green">Record Added</p>'; 
-    }
-    
-    if(isset($_GET['loginFail'])) {
-        echo '<p style="color:red">your username or password is incorrect</p>';
-    }
-    
-    if(isset($_GET['userNameTaken'])) {
-        echo '<p style="color:red">Username Already Taken</p>';
-    }
-    
-    if(isset($_GET['addSuccess'])) {
-        echo '<p style="color:green">Record Added</p>';
-    }
+  if(isset($_GET['regSuccess'])) {
+      echo '<p style="color:green">Record Added</p>'; 
+  }
+  
+  if(isset($_GET['loginFail'])) {
+      echo '<p style="color:red">your username or password is incorrect</p>';
+  }
+  
+  if(isset($_GET['userNameTaken'])) {
+      echo '<p style="color:red">Username Already Taken</p>';
+  }
+  
+  if(isset($_GET['addSuccess'])) {
+      echo '<p style="color:green">Record Added</p>';
+  }
 
-    if(isset($_GET['albumExists'])) {
-      echo '<p style="color:red">Album already in your collection</p>';
+  if(isset($_GET['albumExists'])) {
+    echo '<p style="color:red">Album already in your collection</p>';
   }
   if(isset($_GET['noSelect'])) {
     echo "<p style=color:red>Nothing Selected</p>";
   }
   if(isset($_GET['recordDeleted'])) {
     echo "<p style=color:red>Record Deleted</p>";
+  }
+
+  if(isset($_GET['tracksUpdated'])) {
+    echo "<p style=color:green>Tracks Updated</p>";
   }
   
 }
