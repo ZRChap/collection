@@ -13,13 +13,14 @@ if(!empty($data)) {
           <th><a href='?order=tracks&&sort=$sort'>TRACKS</a></th>
     </tr>";
     foreach ($data as $row) {
-      $id = $row['collection_id'];
+      $id = $row['album_id'];
       echo '<tr>
         <td><input type="checkbox" name="checkboxes[]" value="' . $id . '"></td>
         <td>' . $row['artistName'] . '</td>
         <td>' . $row['albumName'] . '</td>
         <td>' . $row['year'] . '</td>
         <td>' . $row['tracks'] . '</td>
+        
       </tr>';
       
     }
@@ -58,8 +59,13 @@ function pageMessage() {
   if(isset($_GET['tracksUpdated'])) {
     echo "<p style=color:green>Tracks Updated</p>";
   }
+
+  if(isset($_GET['recordUpdated'])) {
+    echo "<p style=color:green>Records Updated</p>";
+  }
   
 }
+
 
       
 

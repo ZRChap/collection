@@ -41,6 +41,14 @@ if(isset($_GET['sort'])) {
 
           $db->insertRow("INSERT INTO album (artist_id, albumName, year, tracks, created, updated) VALUES (?, ?, ?, ?, ?, ?)", ["$artistId", "$album", "$year", "$trackNum", "$currTime", "$currTime"]);
 
+          $getAlbumId = $db->getrow("SELECT * FROM album WHERE albumName =?", ["$album"]);
+          $albumId = $getAlbumId[0];
+
+          for($i = 1; $i <= $trackNum; $i++) {
+            $currTrack = 'track ' . "$i" .'';       
+            $db->insertRow("INSERT INTO tracks (album_id, trackName, created, updated) VALUES (?, ?, ?, ?)", ["$albumId", "$currTrack", "$currTime", "$currTime"]);
+           }
+
           header('Location: http://localhost/collection/addpage.php?addSuccess');
       
       //if artist and album do not exits then add both to collection//
@@ -67,7 +75,7 @@ if(isset($_GET['sort'])) {
       }  
     }
     
-    $data = $db->getRows('SELECT collection.collection_id, collection.user_id, collection.artist_id, artist.artistName, album.albumName, album.year, album.tracks FROM collection JOIN artist ON collection.user_id =' . " $user_id " . 'AND collection.artist_id = artist.artist_id JOIN album ON collection.artist_id = album.artist_id ORDER BY' . " $order $sort");
+    $data = $db->getRows('SELECT collection.collection_id, collection.user_id, collection.artist_id, artist.artistName, album.albumName, album.album_id, album.year, album.tracks FROM collection JOIN artist ON collection.user_id =' . " $user_id " . 'AND collection.artist_id = artist.artist_id JOIN album ON collection.artist_id = album.artist_id ORDER BY' . " $order $sort");
     
 } else {
   session_destroy();
